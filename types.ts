@@ -1,7 +1,7 @@
-type Mode = 'development' | 'production';
+import { BuildMode } from "./config/types/types";
 
 export interface IEnvVariable {
-    mode: Mode;
-    port: number
-    iNeedProgress: boolean
+  mode: BuildMode;
+  port: number;
+  iNeedProgress: boolean;
 }
