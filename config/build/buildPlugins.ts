@@ -16,16 +16,16 @@ export function buildPlugin(options: BuildOptions): Configuration["plugins"] {
   ];
 
   if (isDev) {
+    plugins.push(new webpack.ProgressPlugin());
+  }
+
+  if (isProd) {
     plugins.push(
       new MiniCssExtractPlugin({
         filename: "css/[name].[contenthash].css",
         chunkFilename: "css/[name].[contenthash].css",
       })
     );
-  }
-
-  if (isProd) {
-    plugins.push(new webpack.ProgressPlugin());
   }
 
   return plugins;

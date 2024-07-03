@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import "./App.scss";
+import styles from "./App.module.scss";
 
 export const App = () => {
   const [count, setCount] = useState(0);
@@ -17,11 +17,13 @@ export const App = () => {
     <>
       <div>Hello</div>
       <p>World</p>
-      <button onClick={() => changeCOunt("+")}>
+      <button className={styles.btn} onClick={() => changeCOunt("+")}>
         <span>+</span>
       </button>
-      <p>{count}</p>
-      <button onClick={() => changeCOunt("-")}>-</button>
+      <p className={styles.value}>{count}</p>
+      <button className={styles.btn} onClick={() => changeCOunt("-")}>
+        -
+      </button>
     </>
   );
 };
