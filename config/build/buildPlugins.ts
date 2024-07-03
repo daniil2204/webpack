@@ -1,6 +1,6 @@
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import path from "path";
+import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 import webpack from "webpack";
 import { Configuration } from "webpack";
 import { BuildOptions } from "../types/types";
@@ -26,6 +26,7 @@ export function buildPlugin(options: BuildOptions): Configuration["plugins"] {
         chunkFilename: "css/[name].[contenthash].css",
       })
     );
+    options.analyzer && plugins.push(new BundleAnalyzerPlugin());
   }
 
   return plugins;

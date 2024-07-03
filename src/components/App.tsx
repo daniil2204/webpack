@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import styles from "./App.module.scss";
+import { Link, Outlet } from "react-router-dom";
 
 export const App = () => {
   const [count, setCount] = useState(0);
@@ -24,6 +25,12 @@ export const App = () => {
       <button className={styles.btn} onClick={() => changeCOunt("-")}>
         -
       </button>
+      <div>
+        <Link to={"/about"}>about</Link>
+        <br />
+        <Link to={"/shop"}>shop</Link>
+      </div>
+      <Outlet />
     </>
   );
 };

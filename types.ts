@@ -4,4 +4,5 @@ export interface IEnvVariable {
   mode: BuildMode;
   port: number;
   iNeedProgress: boolean;
+  analyzer?: boolean;
 }
