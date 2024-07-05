@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebpack=self.webpackChunkwebpack||[]).push([[214],{214:(e,a,s)=>{s.r(a),s.d(a,{default:()=>k});var c=s(343);const k=()=>(0,c.jsx)("div",{className:"rNjy_GNP",children:"About page"})}}]);
