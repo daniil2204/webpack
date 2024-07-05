@@ -1,4 +1,5 @@
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import ReactRefreshTypeScript from "react-refresh-typescript";
 import { ModuleOptions } from "webpack";
 import { BuildOptions } from "../types/types";
 
@@ -12,11 +13,30 @@ export function buildLoaders(options: BuildOptions): ModuleOptions["rules"] {
       },
     },
   };
-  const tsLoader = {
+  // const tsLoader = {
+  //   test: /\.tsx?$/,
+  //   use: [
+  //     {
+  //       loader: "ts-loader",
+  //       options: {
+  //         transpileOnly: isDev,
+  //         getCustomTransformers: () => ({
+  //           before: [isDev && ReactRefreshTypeScript()].filter(Boolean),
+  //         }),
+  //       },
+  //     },
+  //   ],
+  //   exclude: /node_modules/,
+  // };
+
+  const babel = {
     test: /\.tsx?$/,
-    use: "ts-loader",
     exclude: /node_modules/,
+    use: {
+      loader: "babel-loader",
+    },
   };
+
   const scssLoader = {
     test: /\.s[ac]ss$/i,
     use: [
@@ -25,5 +45,13 @@ export function buildLoaders(options: BuildOptions): ModuleOptions["rules"] {
       "sass-loader",
     ],
   };
-  return [tsLoader, scssLoader];
+  const assetLoader = {
+    test: /\.(png|jpg|jpeg|gif)$/i,
+    type: "asset/resource",
+  };
+  const svgrLoader = {
+    test: /\.svg$/,
+    use: ["@svgr/webpack"],
+  };
+  return [babel, scssLoader, assetLoader, svgrLoader];
 }

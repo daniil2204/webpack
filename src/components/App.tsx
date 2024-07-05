@@ -2,6 +2,9 @@
 import { useState } from "react";
 import styles from "./App.module.scss";
 import { Link, Outlet } from "react-router-dom";
+import room from "@/assets/room.jpg";
+import paper from "@/assets/paper.png";
+import BannerBurger from "@/assets/BannerBurgerTest.svg";
 
 export const App = () => {
   const [count, setCount] = useState(0);
@@ -16,8 +19,18 @@ export const App = () => {
 
   return (
     <>
-      <div>Hello</div>
+      <div style={{ color: "green", fontSize: 100 }}>Hello</div>
       <p>World</p>
+      <p>PLATFORM={__PLATFORM__}</p>
+      <div>
+        <img style={{ width: 500, height: 450 }} alt="room" src={room} />
+      </div>
+      <div>
+        <img style={{ width: 500, height: 450 }} alt="paper" src={paper} />
+      </div>
+      <div>
+        <BannerBurger fill={"red"} />
+      </div>
       <button className={styles.btn} onClick={() => changeCOunt("+")}>
         <span>+</span>
       </button>

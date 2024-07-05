@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebpack=self.webpackChunkwebpack||[]).push([[830],{830:(e,a,c)=>{c.r(a),c.d(a,{default:()=>t});const t=function(){return React.createElement("div",{className:"rNjy_GNP"},"About page")}}}]);
