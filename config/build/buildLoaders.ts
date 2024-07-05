@@ -13,27 +13,11 @@ export function buildLoaders(options: BuildOptions): ModuleOptions["rules"] {
       },
     },
   };
-  // const tsLoader = {
-  //   test: /\.tsx?$/,
-  //   use: [
-  //     {
-  //       loader: "ts-loader",
-  //       options: {
-  //         transpileOnly: isDev,
-  //         getCustomTransformers: () => ({
-  //           before: [isDev && ReactRefreshTypeScript()].filter(Boolean),
-  //         }),
-  //       },
-  //     },
-  //   ],
-  //   exclude: /node_modules/,
-  // };
-
-  const babel = {
-    test: /\.tsx?$/,
-    exclude: /node_modules/,
-    use: {
-      loader: "babel-loader",
+  const esbuild = {
+    test: /\.[jt]sx?$/,
+    loader: "esbuild-loader",
+    options: {
+      target: "es2015",
     },
   };
 
@@ -53,5 +37,5 @@ export function buildLoaders(options: BuildOptions): ModuleOptions["rules"] {
     test: /\.svg$/,
     use: ["@svgr/webpack"],
   };
-  return [babel, scssLoader, assetLoader, svgrLoader];
+  return [esbuild, scssLoader, assetLoader, svgrLoader];
 }
