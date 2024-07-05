@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebpack=self.webpackChunkwebpack||[]).push([[95],{95:(e,c,a)=>{a.r(c),a.d(c,{default:()=>t});const t=()=>React.createElement("div",null,"Shop")}}]);
