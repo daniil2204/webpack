@@ -13,29 +13,29 @@ export function buildLoaders(options: BuildOptions): ModuleOptions["rules"] {
       },
     },
   };
-  // const tsLoader = {
-  //   test: /\.tsx?$/,
-  //   use: [
-  //     {
-  //       loader: "ts-loader",
-  //       options: {
-  //         transpileOnly: isDev,
-  //         getCustomTransformers: () => ({
-  //           before: [isDev && ReactRefreshTypeScript()].filter(Boolean),
-  //         }),
-  //       },
-  //     },
-  //   ],
-  //   exclude: /node_modules/,
-  // };
-
-  const babel = {
+  const tsLoader = {
     test: /\.tsx?$/,
+    use: [
+      {
+        loader: "ts-loader",
+        options: {
+          transpileOnly: isDev,
+          getCustomTransformers: () => ({
+            before: [isDev && ReactRefreshTypeScript()].filter(Boolean),
+          }),
+        },
+      },
+    ],
     exclude: /node_modules/,
-    use: {
-      loader: "babel-loader",
-    },
   };
+
+  // const babel = {
+  //   test: /\.tsx?$/,
+  //   exclude: /node_modules/,
+  //   use: {
+  //     loader: "babel-loader",
+  //   },
+  // };
 
   const scssLoader = {
     test: /\.s[ac]ss$/i,
@@ -53,5 +53,5 @@ export function buildLoaders(options: BuildOptions): ModuleOptions["rules"] {
     test: /\.svg$/,
     use: ["@svgr/webpack"],
   };
-  return [babel, scssLoader, assetLoader, svgrLoader];
+  return [tsLoader, scssLoader, assetLoader, svgrLoader];
 }
